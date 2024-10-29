@@ -48,6 +48,8 @@ user_agreement() {
         echo "已同意"
         sed -i 's/^user_authorization="false"/user_authorization="true"/' ./yuju.sh
         sed -i 's/^user_authorization="false"/user_authorization="true"/' /usr/local/bin/yuju
+	#安装sudo
+        apt install sudo -y
     else
         echo "已拒绝"
         exit 1
