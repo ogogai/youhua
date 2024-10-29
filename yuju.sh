@@ -563,10 +563,8 @@ bandwidth_test(){
             wget -O taierspeed-cli "$url" && chmod +x taierspeed-cli
         else
             echo "taierspeed-cli 已存在，跳过下载步骤。"
-            clear
         fi
 
-        clear
         echo "本机器地理位置为中国，使用taierspeed-cli测速..."
         echo "测速中，请等待..."
         # 运行speedtest并获取JSON输出
@@ -593,7 +591,6 @@ bandwidth_test(){
         echo "上传速度: $upload_speed MB/s"
 
     else
-        clear
 
         # 检查是否已经安装speedtest-cli
         if ! command -v speedtest &> /dev/null; then
