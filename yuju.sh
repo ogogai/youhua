@@ -534,63 +534,7 @@ bandwidth_test(){
 
     # 判断国家是否为中国（CN）
     if [ "$country" == "CN" ]; then
-        # 检查是否已经存在 taierspeed-cli
-        if [ ! -f ./taierspeed-cli ]; then
-            echo "taierspeed-cli 不存在，正在下载..."
-            
-            # 获取系统架构
-            arch=$(uname -m)
-        
-            # 根据系统架构设置对应的下载URL
-            case "$arch" in
-                x86_64)
-                    # 64位系统
-                    url="https://mirror.ghproxy.com/https://github.com/ztelliot/taierspeed-cli/releases/download/v1.7.2/taierspeed-cli_1.7.2_linux_amd64"
-                    ;;
-                arm64|aarch64)
-                    # ARM 64位系统
-                    url="https://mirror.ghproxy.com/https://github.com/ztelliot/taierspeed-cli/releases/download/v1.7.2/taierspeed-cli_1.7.2_linux_arm64"
-                    ;;
-                armv7l|armhf)
-                    # ARM 32位系统
-                    url="https://mirror.ghproxy.com/https://github.com/ztelliot/taierspeed-cli/releases/download/v1.7.2/taierspeed-cli_1.7.2_linux_armv7"
-                    ;;
-                *)
-                    echo "未识别的系统架构: $arch"
-                    exit 1
-                    ;;
-            esac
-        
-            # 下载并设置执行权限
-            wget -O taierspeed-cli "$url" && chmod +x taierspeed-cli
-        else
-            echo "taierspeed-cli 已存在，跳过下载步骤。"
-        fi
-
-        echo "本机器地理位置为中国，使用taierspeed-cli测速..."
-        echo "测速中，请等待..."
-        # 运行speedtest并获取JSON输出
-        json_output=$(./taierspeed-cli --json)
-        
-        # 提取测试时间
-        timestamp=$(echo "$json_output" | jq -r '.results[0].timestamp')
-        
-        # 提取区域信息
-        location=$(echo "$json_output" | jq -r '.client.city')
-        
-        # 提取下载速度并转换为MB/s
-        download_bandwidth=$(echo "$json_output" | jq -r '.results[0].download')
-        download_speed=$(echo "scale=2; $download_bandwidth / 8" | bc)
-        
-        # 提取上传速度并转换为MB/s
-        upload_bandwidth=$(echo "$json_output" | jq -r '.results[0].upload')
-        upload_speed=$(echo "scale=2; $upload_bandwidth / 8" | bc)
-
-        # 输出信息
-        echo "测试时间: $timestamp"
-        echo "区域信息: $location"
-        echo "下载速度: $download_speed MB/s"
-        echo "上传速度: $upload_speed MB/s"
+        echo "国内测速脚本的项目因滥用已被屏蔽，暂无可使用的国内测速API。"
 
     else
 
