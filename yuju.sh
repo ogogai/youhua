@@ -36,7 +36,7 @@ authorization_false() {
 # 提示用户协议
 user_agreement() {
     clear
-    echo -e "${pink}欢迎使用yuju一键工具${white}"
+    echo -e "${pink}欢迎使用pengpeng一键工具${white}"
     echo "此脚本基于自用开发"
     echo -e "${red}请尽量通过选择脚本选项退出${white}"
     echo "如有问题，后果自负"
@@ -1439,7 +1439,7 @@ echo " \ /   |    |     |   |    | "
 echo "  |    |    |     |   |    | "
 echo "  |    |____|  ___|   |____| "
 echo "                                "
-echo -e "${pink}yuju工具箱 【v$version】 LinuxDo站首发！"
+echo -e "${pink}pengpeng工具箱 【v$version】 LinuxDo站首发！"
 echo -e "【该工具箱仅适配Ubuntu/Debian系统】"
 echo -e "----输入${red}yuju${pink}可再次快速启动此脚本----${white}"
 echo -e "${pink}============================${white}"
@@ -1484,16 +1484,16 @@ case $choice in
 
   555)
     clear
-    echo "卸载yuju工具箱"
+    echo "卸载pengpeng工具箱"
     echo -e "${pink}============================${white}"
-    echo "将彻底卸载yuju工具箱，不影响已安装的功能"
+    echo "将彻底卸载pengpeng工具箱，不影响已安装的功能"
     read -p "确定继续吗？(Y/N): " confirm
     if [[ "$confirm" == "Y" || "$confirm" == "y" ]]; then
         # 执行删除操作
         clear
         rm -f /usr/local/bin/yuju
         rm ./yuju.sh
-        echo "脚本已卸载，祝您生活愉快！"
+        echo "脚本已卸载，祝您生活愉快，我再您的见！"
         exit
     else
         echo "操作已取消。"
